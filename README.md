@@ -65,6 +65,7 @@ go run ./...
 - `EMAIL_ENABLED` – `true`/`false` to toggle sending emails
 - `SMTP_HOST`, `SMTP_PORT`, `SMTP_USERNAME`, `SMTP_PASSWORD`, `SMTP_FROM` – SMTP settings
 - `LOG_LEVEL` – `debug`, `info`, `warn`, or `error` (default `info`)
+  - Note: the app will auto-load a `.env` file in the project root if present (for local dev). In production, set env vars via your process manager.
 
 ## API reference
 
