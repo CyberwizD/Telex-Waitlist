@@ -11,6 +11,7 @@ At minimum, set `DATABASE_URL`. Example for local Postgres:
 ```
 DATABASE_URL=postgres://postgres:postgres@localhost:5432/telex_waitlist?sslmode=disable
 ```
+The app will auto-load a `.env` file in the repo root if it exists (local/dev). Otherwise, export variables in your shell.
 Other useful variables (see `.env.example` for defaults):
 - `PORT` (default 8080)
 - `APP_NAME`
