@@ -1,1 +1,8 @@
 .env
+bin/
+dist/
+*.log
+*.out
+*.exe
+vendor/
+.DS_Store
