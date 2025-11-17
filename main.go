@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"log"
 	"log/slog"
 	"net/http"
 	"os"
@@ -31,6 +32,15 @@ func main() {
 	}
 
 	appLog := logger.New(cfg.LogLevel)
+
+	migrateCtx, cancelMigrate := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancelMigrate()
+
+	appLog.Info("Starting database migration...")
+
+	if err := database.Migrate(migrateCtx, appLog, cfg); err != nil {
+		log.Fatalf("Failed to migrate database: %v", err)
+	}
 
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
