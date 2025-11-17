@@ -16,9 +16,13 @@ import (
 	"github.com/CyberwizD/Telex-Waitlist/internal/routes"
 	"github.com/CyberwizD/Telex-Waitlist/internal/services"
 	"github.com/CyberwizD/Telex-Waitlist/pkg/logger"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	// Load environment variables
+	_ = godotenv.Load()
+
 	cfg, err := config.Load()
 	if err != nil {
 		// Fallback to stdout if logger cannot initialize.
